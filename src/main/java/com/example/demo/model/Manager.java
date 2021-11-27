@@ -22,7 +22,7 @@ public class Manager {
 
     @OneToMany(targetEntity = Employee.class,
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "manager_id",
             referencedColumnName = "manager_id")
     private List<Employee> employees;
@@ -43,9 +43,9 @@ public class Manager {
         this.fullName = fullName;
     }
 
-//    public List<Employee> getEmployees() {
-//        return employees;
-//    }
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
