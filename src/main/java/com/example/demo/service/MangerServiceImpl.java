@@ -22,4 +22,9 @@ public class MangerServiceImpl implements ManagerService{
     public List<Manager> getManagers() {
         return managerRepository.findAll();
     }
+
+    @Override
+    public void deleteMangerById(Long id) {
+        managerRepository.deleteById(id);
+    }
 }

@@ -2,10 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Manager;
 import com.example.demo.service.ManagerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,11 @@ public class ManagerController {
     @GetMapping(path = "manager/all")
     public List<Manager> getAllManagers() {
         return managerService.getManagers();
+    }
+
+    @DeleteMapping(path = "manager/delete/{id}")
+    public String deleteManager(@PathVariable("id") Long id) {
+        managerService.deleteMangerById(id);
+        return "MANAGER WAS REMOVED SUCCESSFULLY";
     }
 }

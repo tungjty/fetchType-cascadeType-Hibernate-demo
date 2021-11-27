@@ -9,4 +9,6 @@ public interface ManagerService {
     Manager getManager(String name);
 
     List<Manager> getManagers();
+
+    void deleteMangerById(Long id);
 }
