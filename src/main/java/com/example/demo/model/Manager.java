@@ -21,7 +21,7 @@ public class Manager {
     private String fullName;
 
     @OneToMany(targetEntity = Employee.class,
-            cascade = CascadeType.ALL,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
             fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id",
             referencedColumnName = "manager_id")
