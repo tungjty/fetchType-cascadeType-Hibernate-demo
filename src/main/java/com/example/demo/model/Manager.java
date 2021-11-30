@@ -20,11 +20,15 @@ public class Manager {
 
     private String fullName;
 
-    @OneToMany(targetEntity = Employee.class,
+    @OneToMany(
+            targetEntity = Employee.class,
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
             fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id",
-            referencedColumnName = "manager_id")
+    @JoinColumn(
+            name = "manager_id",
+            referencedColumnName = "manager_id",
+            foreignKey = @ForeignKey(name = "manager_manager_id_fk")
+    )
     private List<Employee> employees;
 
     public Long getId() {
